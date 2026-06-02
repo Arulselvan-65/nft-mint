@@ -12,17 +12,20 @@ contract DevBadge is ERC721, ERC721URIStorage, Ownable {
 
     mapping(address => bool) public hasMinted;
 
-    constructor(address initialOwner)
+    constructor()
         ERC721("DevBadge", "DBDG")
-        Ownable(initialOwner)
+        Ownable(msg.sender)
     {}
 
     error ExceedsMintLimit();
     error AlreadyMinted();
+    error InsufficientPayment(uint256 required, uint256 provided);
+
     event TokenMinted(address indexed to, uint256 tokenId);
 
-    function safeMint(address to, string memory uri) external {
+    function safeMint(address to, string memory uri) external payable {
         uint256 tokenId = _nextTokenId++;
+        require(msg.value == MINT_PRICE, InsufficientPayment(MINT_PRICE, msg.value));
         require(!hasMinted[msg.sender], AlreadyMinted());
         if(tokenId > 100) revert ExceedsMintLimit();
         hasMinted[msg.sender] = true;
