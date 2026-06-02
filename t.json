@@ -1,0 +1,21 @@
+{
+  "name": "FundNFT Supporter Badge #123",
+  "description": "Exclusive on-chain badge awarded to supporters of FundNFT campaigns. Thank you for making an impact!",
+  "image": "https://ipfs.io/ipfs/QmfHnfofhA98b3dcpLL7zBNoqx3XUpEXaWW5p9WBi9ziFt",
+  "external_url": "https://yourproject.com/supporter/123",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Gold"
+    },
+    {
+      "trait_type": "Campaign ID",
+      "value": 7,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Campaign Name",
+      "value": "Save the Rainforest 2025"
+    }
+  ]
+}
