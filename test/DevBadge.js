@@ -14,7 +14,7 @@ describe("DevBadge", function () {
   }
 
   describe("Deployment", function () {
-    it("Should set the right unlockTime", async function () {
+    it("Should set the right owner", async function () {
       const { lock, unlockTime } = await loadFixture(deployOneYearLockFixture);
 
       expect(await lock.unlockTime()).to.equal(unlockTime);
