@@ -1,6 +1,6 @@
 const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 
-const baseURI = "https://ipfs.io/ipfs/bafkreibckfqyifkptko6azgni6ioaxrlbdmc5koa4q2g4qffec523qykyi";
+const baseURI = "ipfs://bafkreiebck6ll7zehk4tqrthxl4eiq4tmkaxm7mpuvsfjrespxvw5vicpi";
 
 module.exports = buildModule("DevBadgeModule", (m) => {
   const contract = m.contract("DevBadge", [baseURI]);

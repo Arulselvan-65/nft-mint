@@ -87,13 +87,13 @@ error InsufficientPayment(uint256 required, uint256 provided);
 | Token Name | DevBadge |
 | Symbol | DBDG |
 | Network | Ethereum |
-| Contract Address | `0x55F900d05b274b3548B78E79CE8761d32F5692f4` |
+| Contract Address | `0x2012Cbe95f51260aD4b4be14d78701B4c14a0C86` |
 | Max Supply | 100 DBDG |
 | Mint Price | 0.001 ETH |
 | Standard | ERC-721 |
 
-[View on Etherscan](https://etherscan.io/address/0x55F900d05b274b3548B78E79CE8761d32F5692f4)
+[View on Etherscan](https://sepolia.etherscan.io/address/0x2012Cbe95f51260aD4b4be14d78701B4c14a0C86)
 
-[View on Sourcify](https://repo.sourcify.dev/11155111/0x55F900d05b274b3548B78E79CE8761d32F5692f4)
+[View on Sourcify](https://repo.sourcify.dev/11155111/0x2012Cbe95f51260aD4b4be14d78701B4c14a0C86)
 
 
