@@ -1,7 +1,6 @@
 {
   "name": "nft-mint",
   "version": "1.0.0",
- 
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.1.2",
     "@nomicfoundation/hardhat-ethers": "^3.1.3",

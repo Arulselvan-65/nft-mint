@@ -42,7 +42,17 @@ describe("DevBadge", function () {
     it("Should assign the correct token ID to the minted NFT", async function () {
       const { contract, owner } = await loadFixture(deployDevBadgeFixture);
       await contract.safeMint({ value: await contract.MINT_PRICE() });
-      expect(await contract.ownerOf(0)).to.equal(owner.address);
+      expect(await contract.mintedTokenId(owner.address)).to.equal(0);
+    });
+
+    describe("Events", function () {
+      it("Should emit TokenMiownted when a new NFT is minted", async function () {
+        const { contract, owner } = await loadFixture(deployDevBadgeFixture);
+        expect(await contract.safeMint({ value: await contract.MINT_PRICE() }))
+          .to
+          .emit(contract, "TokenMinted")
+          .withArgs(owner.address, 0);
+      });
     });
 
     it("Should throw InsufficientPayment if the user does not send enough ETH for minting.", async function () {
