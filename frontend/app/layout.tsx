@@ -9,7 +9,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <div className="bg-zinc-950 text-white font-sans relative overflow-hidden">
+        <div className="bg-zinc-950 text-white font-sans relative sm:overflow-hidden">
           <Providers>
             <Navbar/>
             <main>

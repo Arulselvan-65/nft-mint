@@ -10,7 +10,7 @@ const config = getDefaultConfig({
     projectId: `${process.env.PROJECT_ID}`,
     chains: [hardhat, sepolia],
     transports: {
-        [hardhat.id]: http('http://127.0.0.1:8545'),
+        [hardhat.id]: http('http://10.37.63.142:8545/'),
         [sepolia.id]: http(`${process.env.INFURA_RPC_URL}`)
     },
     ssr: true

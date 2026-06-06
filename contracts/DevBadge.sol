@@ -8,7 +8,7 @@ import {
 } from "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
 contract DevBadge is ERC721, ERC721URIStorage, Ownable {
-    uint8 private _nextTokenId;
+    uint8 public nextTokenId;
     uint8 public constant MAX_SUPPLY = 100;
     uint256 public constant MINT_PRICE = 0.001 ether;
     string public BASE_URI;
@@ -29,7 +29,7 @@ contract DevBadge is ERC721, ERC721URIStorage, Ownable {
     event TokenMinted(address indexed to, uint256 tokenId);
 
     function safeMint() external payable {
-        uint8 tokenId = _nextTokenId++;
+        uint8 tokenId = nextTokenId++;
         if (tokenId >= MAX_SUPPLY) revert ExceedsMintLimit();
         if (hasMinted[msg.sender]) revert AlreadyMinted();
         if (msg.value != MINT_PRICE)
