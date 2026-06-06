@@ -21,6 +21,7 @@ function NFTInfo() {
     ]);
     const [hasMinted, setHasMinted] = useState(false);
     const [mintedTokenId, setMintedTokenId] = useState(0);
+    const [triggerRefresh, setTriggerRefresh] = useState(0);
 
     const { data: walletClient } = useWalletClient();
     const { address, isConnected, chain } = useAccount();
@@ -62,6 +63,7 @@ function NFTInfo() {
                     setIsModalOpen(false);
                     return;
                 }
+                setHasMinted(false);
 
                 const totalSupply: any = await client.readContract({
                     address: contractAddress,
@@ -95,7 +97,7 @@ function NFTInfo() {
         };
 
         readContract();
-    }, [isConnected, address]);
+    }, [isConnected, address, triggerRefresh]);
 
     useEffect(() => {
         const getSigner = async () => {
@@ -113,6 +115,10 @@ function NFTInfo() {
     }, [isConnected, address, chain, walletClient]);
 
     const handleMint = async () => {
+        if (!isConnected) {
+            toast.error("Connect your wallet to continue.");
+            return;
+        }
         try {
             setTxHash("");
             setTxStatus("loading");
@@ -151,7 +157,10 @@ function NFTInfo() {
                 <TransactionModal
                     status={txStatus}
                     txhash={txHash}
-                    onClose={() => setIsModalOpen(false)}
+                    onClose={() => {
+                        setIsModalOpen(false)
+                        setTriggerRefresh(prev => prev + 1);
+                    }}
                 />
             )}
 
