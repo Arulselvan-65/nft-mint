@@ -9,10 +9,10 @@ function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <div className="bg-black text-white font-sans relative">
+        <div className="bg-zinc-950 text-white font-sans relative overflow-hidden">
           <Providers>
             <Navbar/>
-            <main className="min-h-screen">
+            <main>
               {children}
             </main>
             <ToastContainer

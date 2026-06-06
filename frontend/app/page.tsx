@@ -1,5 +1,6 @@
 'use client'
 import TransactionModal from "@/components/TransactionModal";
+import WalletInfo from "@/components/WalletInfo";
 import { useState } from "react";
 
 function Home() {
@@ -17,8 +18,10 @@ function Home() {
 
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center font-sans bg-black">
-      <h1 className="text-red-50">HI</h1>
+    <div className="flex flex-col flex-1 items-center justify-center font-sans">
+      <div className="center">
+        <WalletInfo />
+      </div>
       {
         isModalOpen ?
           <TransactionModal status={txStatus} txhash={txHash} onClose={() => setIsModalOpen(false)} />
