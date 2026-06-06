@@ -7,11 +7,11 @@ import { http } from 'wagmi';
 
 const config = getDefaultConfig({
     appName: 'DevBadge',
-    projectId: `${process.env.PROJECT_ID}`,
+    projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
     chains: [hardhat, sepolia],
     transports: {
         [hardhat.id]: http('http://10.37.63.142:8545/'),
-        [sepolia.id]: http(`${process.env.INFURA_RPC_URL}`)
+        [sepolia.id]: http(`${process.env.NEXT_PUBLIC_INFURA_RPC_URL}`)
     },
     ssr: true
 });

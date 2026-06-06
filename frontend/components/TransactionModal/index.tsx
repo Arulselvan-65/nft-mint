@@ -15,6 +15,22 @@ const TransactionModal = ({ status, txhash, onClose }: { status: string, txhash:
             }}
         >
 
+            <style>{`
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); opacity: 0.4; }
+          50% { transform: translateY(-6px); opacity: 1; }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(0.92); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes checkPop {
+          from { transform: scale(0); }
+          to { transform: scale(1); }
+        }
+      `}</style>
+
             <div
                 style={{
                     background: '#101010',
@@ -175,12 +191,12 @@ const TransactionModal = ({ status, txhash, onClose }: { status: string, txhash:
                                 margin: '0 auto 1.25rem'
                             }}
                         >
-                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A32D2D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#dd1010" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
                             </svg>
                         </div>
 
-                        <p style={{ fontSize: '17px', fontWeight: '600', color: '#A32D2D', margin: '0 0 8px' }}>
+                        <p style={{ fontSize: '17px', fontWeight: '600', color: '#dd1010', margin: '0 0 8px' }}>
                             Transaction failed
                         </p>
                         <p style={{ fontSize: '14px', color: '#5F5E5A', margin: '0 0 1.25rem', lineHeight: '1.5' }}>
@@ -194,8 +210,8 @@ const TransactionModal = ({ status, txhash, onClose }: { status: string, txhash:
                                 style={{
                                     flex: 1,
                                     padding: '10px',
-                                    background: '#A32D2D',
-                                    color: '#a4a3a3',
+                                    background: '#dd1010',
+                                    color: '#ffffff',
                                     border: 'none',
                                     borderRadius: '8px',
                                     fontSize: '14px',

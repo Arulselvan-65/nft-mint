@@ -46,7 +46,7 @@ describe("DevBadge", function () {
     });
 
     describe("Events", function () {
-      it("Should emit TokenMiownted when a new NFT is minted", async function () {
+      it("Should emit TokenMinted when a new NFT is minted", async function () {
         const { contract, owner } = await loadFixture(deployDevBadgeFixture);
         expect(await contract.safeMint({ value: await contract.MINT_PRICE() }))
           .to

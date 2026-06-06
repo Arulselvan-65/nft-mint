@@ -19,6 +19,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
               limit={3}
               position="top-right"
               className="toastContainer"
+              theme="dark"
             />
           </Providers>
         </div>
