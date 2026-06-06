@@ -1,6 +1,7 @@
 'use client'
 import TransactionModal from "@/components/TransactionModal";
 import WalletInfo from "@/components/WalletInfo";
+import NFTInfo from "@/components/NFTInfo";
 import { useState } from "react";
 
 function Home() {
@@ -19,15 +20,15 @@ function Home() {
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans">
-      <div className="center">
-        <WalletInfo />
-      </div>
       {
         isModalOpen ?
           <TransactionModal status={txStatus} txhash={txHash} onClose={() => setIsModalOpen(false)} />
           : ""
       }
-
+      <div className="center">
+        <WalletInfo />
+        <NFTInfo />
+      </div>
       <button onClick={mint}>HI</button>
     </div>
   );

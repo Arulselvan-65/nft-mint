@@ -5,8 +5,10 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
-
-  allowedDevOrigins: ['10.37.63.142']
+  allowedDevOrigins: ['10.37.63.142'],
+  images: {
+    remotePatterns: [new URL('https://ipfs.io/ipfs/**')],
+  },
 };
 
 export default nextConfig;

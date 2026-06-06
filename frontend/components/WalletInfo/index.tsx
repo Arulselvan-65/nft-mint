@@ -7,11 +7,11 @@ function WalletInfo () {
             {
                 isConnected ?
                     (
-                        <div className="text-[#c5c5c5] items-center w-80 sm:w-[60%] h-auto justify-between flex p-16 sm:mt-10" style={{
+                        <div className="text-[#929292] items-center w-80 sm:w-[45%] h-auto justify-between flex p-16 sm:mt-6" style={{
                             border: "1px #3a3a3a solid", borderRadius: "12px", padding: "15px", flexWrap: "wrap"
                         }}>
                             <div style={{ justifyItems: "flex-start" }}>
-                                <p>Wallet</p>
+                                <p className="font-semibold text-[#cecece]">Wallet</p>
                                 <p>{address?.slice(0, 8)}...{address?.slice(-6)}</p>
                             </div>
                             <div>
