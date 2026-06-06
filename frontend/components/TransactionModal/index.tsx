@@ -1,4 +1,3 @@
-
 const TransactionModal = ({ status, txhash, onClose }: { status: string, txhash: string, onClose: () => void; }) => {
     return (
         <div
@@ -46,6 +45,56 @@ const TransactionModal = ({ status, txhash, onClose }: { status: string, txhash:
                 }}
             >
 
+                {/* ── FETCHING ── */}
+                {status === 'fetching' && (
+                    <>
+                        <div
+                            style={{
+                                width: '60px',
+                                height: '60px',
+                                borderRadius: '50%',
+                                background: '#1e2a3a',
+                                border: '1.5px solid #3b6ea8',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                margin: '0 auto 1.25rem',
+                            }}
+                        >
+                            <svg
+                                width="26" height="26" viewBox="0 0 24 24"
+                                fill="none" stroke="#5b9bd5" strokeWidth="2"
+                                strokeLinecap="round" strokeLinejoin="round"
+                                style={{ animation: 'spin 1.2s linear infinite' }}
+                            >
+                                <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                            </svg>
+                        </div>
+
+                        <p style={{ fontSize: '17px', fontWeight: '600', color: '#c5d8f0', margin: '0 0 8px' }}>
+                            Fetching on-chain data
+                        </p>
+                        <p style={{ fontSize: '14px', color: '#5F5E5A', margin: '0 0 1.5rem', lineHeight: '1.5' }}>
+                            Querying the contract. This only takes a moment.
+                        </p>
+
+                        <div style={{ display: 'flex', gap: '6px', justifyContent: 'center' }}>
+                            {[0, 0.2, 0.4, 0.6, 0.8].map((delay, i) => (
+                                <div
+                                    key={i}
+                                    style={{
+                                        width: '7px', height: '7px',
+                                        borderRadius: '50%',
+                                        background: '#5b9bd5',
+                                        animation: `bounce 1.4s ease-in-out ${delay}s infinite`
+                                    }}
+                                />
+                            ))}
+                        </div>
+                    </>
+                )}
+
+                {/* ── LOADING ── */}
                 {status === 'loading' && (
                     <>
                         <div
@@ -94,6 +143,7 @@ const TransactionModal = ({ status, txhash, onClose }: { status: string, txhash:
                     </>
                 )}
 
+                {/* ── SUCCESS ── */}
                 {status === 'success' && (
                     <>
                         <div
@@ -116,12 +166,10 @@ const TransactionModal = ({ status, txhash, onClose }: { status: string, txhash:
                             Transaction confirmed
                         </p>
                         <p style={{ fontSize: '14px', color: '#5F5E5A', margin: '0 0 1.25rem', lineHeight: '1.5' }}>
-                            Your NFT has been minted successfully.</p>
+                            Your NFT has been minted successfully.
+                        </p>
 
-                        <a
-                            href={`https://sepolia.etherscan.io/tx/${txhash}`}
-                            target="_blank"
-                            rel="noreferrer">
+                        <a href={`https://sepolia.etherscan.io/tx/${txhash}`} target="_blank" rel="noreferrer">
                             <div
                                 style={{
                                     background: '#303030',
@@ -139,16 +187,7 @@ const TransactionModal = ({ status, txhash, onClose }: { status: string, txhash:
                                     <line x1="4" y1="9" x2="20" y2="9" /><line x1="4" y1="15" x2="20" y2="15" />
                                     <line x1="10" y1="3" x2="8" y2="21" /><line x1="16" y1="3" x2="14" y2="21" />
                                 </svg>
-                                <p
-                                    style={{
-                                        fontSize: '12px',
-                                        color: '#c5c5c5',
-                                        textDecoration: 'none',
-                                        fontFamily: 'monospace',
-                                        wordBreak: 'break-all',
-                                        flex: 1
-                                    }}
-                                >
+                                <p style={{ fontSize: '12px', color: '#c5c5c5', textDecoration: 'none', fontFamily: 'monospace', wordBreak: 'break-all', flex: 1, margin: 0 }}>
                                     {txhash?.slice(0, 14)}...{txhash?.slice(-14)}
                                 </p>
                                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c5c5c5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
@@ -159,7 +198,6 @@ const TransactionModal = ({ status, txhash, onClose }: { status: string, txhash:
                         </a>
 
                         <button
-                            className="tx-modal-close-btn"
                             onClick={onClose}
                             style={{
                                 width: '100%',
@@ -179,6 +217,7 @@ const TransactionModal = ({ status, txhash, onClose }: { status: string, txhash:
                     </>
                 )}
 
+                {/* ── ERROR ── */}
                 {status === 'error' && (
                     <>
                         <div
@@ -205,7 +244,6 @@ const TransactionModal = ({ status, txhash, onClose }: { status: string, txhash:
 
                         <div style={{ display: 'flex', gap: '8px' }}>
                             <button
-                                className="tx-modal-dismiss-btn"
                                 onClick={onClose}
                                 style={{
                                     flex: 1,
