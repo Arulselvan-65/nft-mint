@@ -4,6 +4,7 @@ import { Providers } from './providers';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "@/components/Navbar";
+import Head from 'next/head';
 
 function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,7 +12,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
       <body>
         <div className="bg-zinc-950 text-white font-sans relative sm:overflow-hidden">
           <Providers>
-            <Navbar/>
+            <Navbar />
             <main>
               {children}
             </main>

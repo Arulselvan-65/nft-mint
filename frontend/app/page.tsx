@@ -1,8 +1,6 @@
 'use client'
-import TransactionModal from "@/components/TransactionModal";
 import WalletInfo from "@/components/WalletInfo";
 import NFTInfo from "@/components/NFTInfo";
-import { useState } from "react";
 
 function Home() {
 
