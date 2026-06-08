@@ -50,7 +50,7 @@ DevBadge is a limited NFT collection of 100 badges representing Web3 learners. E
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/nft-mint
+git clone https://github.com/Arulselvan-65/nft-mint
 cd nft-mint
 
 # Install contract dependencies
