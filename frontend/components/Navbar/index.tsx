@@ -29,7 +29,7 @@ function Navbar() {
                                     <button
                                         onClick={openConnectModal}
                                         className="h-10 px-4 rounded-xl bg-[#3898ff] text-white      
-                                            font-medium text-sm border border-white/10 shadow-sm"
+                                            font-bold text-sm border border-white/10 shadow-sm"
                                         >
                                         Connect Wallet
                                     </button>
